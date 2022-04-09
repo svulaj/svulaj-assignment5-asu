@@ -1,12 +1,14 @@
 package main.java.farms;
 
 import java.util.LinkedList;
+
+import main.java.Farmer;
 import main.java.animals.Animal;
 
 public abstract class Farm {
 private String name;
-private int money;
-
+private int money;  // how much money a farm has to hire new farmers, buy more crops, buy new animals
+private LinkedList<Farmer> farmers = new LinkedList<Farmer>();
 
 
 
@@ -22,6 +24,12 @@ public int getMoney() {
 }
 public void setMoney(int money) {
     this.money = money;
+}
+public LinkedList<Farmer> getFarmers() {
+    return farmers;
+}
+public void setFarmers(LinkedList<Farmer> farmers) {
+    this.farmers = farmers;
 }
 
 

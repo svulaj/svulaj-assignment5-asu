@@ -65,7 +65,21 @@ public class Main {
         System.out.println(newCrop2.getName());
         System.out.println(newCrop3.getName());
         System.out.println(newCrop4.getName());
+        //------------------------------------------------------------------------------
+        // Famers check
+        FarmerFactory farmerFactory = new FarmerFactory();
         
+        Farmer newFarmer = farmerFactory.makeNewFarmer(1, farmerFactory.nameGenAnimalFarmer());
+        Farmer newFarmer2 = farmerFactory.makeNewFarmer(1, farmerFactory.nameGenAnimalFarmer());
+        
+        Farmer newFarmer3 = farmerFactory.makeNewFarmer(2, farmerFactory.nameGenCropFarmer());
+        Farmer newFarmer4 = farmerFactory.makeNewFarmer(2, farmerFactory.nameGenCropFarmer());
+        
+        
+        System.out.println(newFarmer.getName());
+        System.out.println(newFarmer2.getName());
+        System.out.println(newFarmer3.getName());
+        System.out.println(newFarmer4.getName());
     }
     
     
