@@ -3,6 +3,8 @@ import main.java.animals.Animal;
 import main.java.animals.AnimalFactory;
 import main.java.crops.Crop;
 import main.java.crops.CropFactory;
+import main.java.farmers.Farmer;
+import main.java.farmers.FarmerFactory;
 import main.java.farms.Farm;
 import main.java.farms.FarmFactory;
 

@@ -1,4 +1,4 @@
-package main.java;
+package main.java.farmers;
 
 public class CropFarmer extends Farmer{
 

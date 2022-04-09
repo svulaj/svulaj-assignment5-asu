@@ -2,8 +2,8 @@ package main.java.farms;
 
 import java.util.LinkedList;
 
-import main.java.Farmer;
 import main.java.animals.Animal;
+import main.java.farmers.Farmer;
 
 public abstract class Farm {
 private String name;
