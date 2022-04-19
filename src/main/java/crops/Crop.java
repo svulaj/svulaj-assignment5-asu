@@ -12,9 +12,21 @@ public abstract class Crop {
     private boolean isDead; // lets us know if this crop is dead or alive
     
     CropState state;
+    CropState sellState;
     
+    public CropState getSellState() {
+        return sellState;
+    }
+
+
+    public void setSellState(CropState sellState) {
+        this.sellState = sellState;
+    }
+
+
     public Crop() {
         state = new HealthyState();
+        sellState = new NotReadyToSellState();
     }
     
     

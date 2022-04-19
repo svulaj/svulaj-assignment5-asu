@@ -7,5 +7,7 @@ public abstract class FarmDecorator extends Farm{
     public FarmDecorator(Farm farm) {
         tempFarm = farm;
     }
+    
     public abstract int getMoney();
+    
 }

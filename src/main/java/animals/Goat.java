@@ -13,6 +13,9 @@ public class Goat extends Animal{
         this.setYield(false);
         this.setYieldCount(0);
         this.setPrice(10);
+        this.setState(new AliveAnimalState());
+        this.setPregnantState(new NotPregnantAnimalState());
+        this.setProductState(new ProductNotReadyState());
     }
 
     @Override

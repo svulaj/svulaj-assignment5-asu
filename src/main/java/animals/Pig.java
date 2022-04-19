@@ -13,6 +13,9 @@ public class Pig extends Animal{
         this.setYield(false);
         this.setYieldCount(0);
         this.setPrice(5);
+        this.setState(new AliveAnimalState());
+        this.setPregnantState(new NotPregnantAnimalState());
+        this.setProductState(new ProductNotReadyState());
     }
 
     @Override

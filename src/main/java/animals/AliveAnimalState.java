@@ -8,7 +8,7 @@ public class AliveAnimalState implements AnimalState{
         animal.setState(this);
     }
     public String toString() {
-        return "Alive animal state";
+        return "Animal state = Alive";
     }
 
 }

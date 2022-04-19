@@ -24,19 +24,19 @@ public abstract class Animal {
     public AnimalState getState() {
         return state;
     }
-    public AnimalState getPregnant() {
+    public AnimalState getPregnantState() {
         return pregnant;
     }
-    public void setPregnant(AnimalState pregnant) {
+    public void setPregnantState(AnimalState pregnant) {
         this.pregnant = pregnant;
     }
     public void setState(AnimalState state) {
         this.state = state;
     }
-    public AnimalState getProduct() {
+    public AnimalState getProductState() {
         return product;
     }
-    public void setProduct(AnimalState product) {
+    public void setProductState(AnimalState product) {
         this.product = product;
     }
     //===========================================================

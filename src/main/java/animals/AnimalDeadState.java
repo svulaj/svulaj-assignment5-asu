@@ -9,7 +9,7 @@ public class AnimalDeadState implements AnimalState{
         
     }
     public String toString() {
-        return "Dead animal state";
+        return "Animal state = Dead";
     }
 
 }

@@ -13,7 +13,10 @@ public class Cow extends Animal{
         this.setType("cow");
         this.setYield(false);
         this.setYieldCount(0);
-        this.setPrice(15);
+        this.setPrice(30);
+        this.setState(new AliveAnimalState());
+        this.setPregnantState(new NotPregnantAnimalState());
+        this.setProductState(new ProductNotReadyState());
     }
     
     

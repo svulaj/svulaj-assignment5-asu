@@ -18,6 +18,7 @@ import main.java.crops.ReadyToSellState;
 import main.java.farmers.CropFarmer;
 import main.java.farmers.Farmer;
 import main.java.farmers.FarmerFactory;
+import main.java.farmers.FarmerLevel2;
 import main.java.farms.CropFarm;
 import main.java.farms.Farm;
 import main.java.farms.FarmFactory;
@@ -98,45 +99,48 @@ public class Main {
             
             player.buyCrop();
             System.out.println("player has $" + player.getMoney() + " left!");
-            
-//            player.ageCrops();
-//            player.areCropsReady();
-//            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//            //player.DeadCropsCheck();
-//            player.areCropsReady();
-//            System.out.println("////////////////////////////////////////////");
-//
-//            player.removeDeadCrop(player.findDeadCrops());
-//            player.cropListToString();
-            
+
 //============================================================================================================
-//            do {
+//BEGINNING OF THE GAME
+            do {
                 if(day == true) {
+                    System.out.println("\n===============================================");
                     System.out.println("Days passed -------------------------------> " + daysPassed);
+                    System.out.println("===============================================\n");
+                    player.ageAnimals();
+                    player.ageCrops();
 //---------------------------------------------------------------------------------------------------------------------
-// UPGRADE SECTION
+// UPGRADE SECTION --- Morning section
+                    
+                    System.out.println("\n----------------------------");
+                    System.out.println("EARLY MORNING: UPGRADING TIME");
+                    System.out.println("----------------------------\n");
                     //if farmers farm is a level 1 farm <<<<Checking for upgrades and additional purchases of crops
                     if(baseFarm.equals(baseFarm)) {
                         //can we upgrade?
                         if(player.getMoney() >= 2000) {
-                            baseFarm = new FarmLevel2(baseFarm);
+                            player.upgradeFarm(baseFarm);
                             System.out.println("upgrade check");
                             System.out.println("Type of farm after upgrade is now: " + baseFarm.getName());
+                          }else {
+                              System.out.println("not enough money to upgrade farm");
                           }
                           //can we purchase new crops?
-                          if(player.getFarm().getCropsArr().size() < 10) {
+                          if(player.getFarm().getCropsArr().size() < 10 && player.getMoney() > 30) {
                               player.buyCrop();
-                              System.out.println("purchase crops check");
+                              //System.out.println("purchase crops check");
                           }
-                          System.out.println("player has $" + player.getMoney() + " left!");
+                          //System.out.println("player has $" + player.getMoney() + " left!");
                     }
 //---------------------------------------------------------------------------------------------------------------------
-// CROP DEATH SECTION
-                    player.ageCrops();
-                    player.ageCrops();
-                    player.ageCrops();
-                    player.getFarm().setCropsArr(player.findDeadCrops());
-                    player.cropListToString();
+// SELLING SECTION ---- Day time section
+                    System.out.println("\n----------------------------");
+                    System.out.println("DAY TIME: PROFIT TAKING TIME");
+                    System.out.println("----------------------------\n");
+                    
+                    System.out.println("--->Farmer goes to the market to sell what stuff he can:");
+                    player.sellCrops();
+                    //player.sellanimalProduct();
 //--------------------------------------------------------------------------------------------------------------------- 
                     
                     // set to go to night time
@@ -144,7 +148,7 @@ public class Main {
                 }
                 
                 if(day == false) {
-                    
+                    player.predatorAttack();
                     
                     
                     
@@ -156,13 +160,31 @@ public class Main {
                 
                 
                 
-//            }while(daysPassed != endOfGame);
+            }while(daysPassed != endOfGame);
 
             
          
 
-            System.out.println("FIN.");
+           System.out.println("FIN.");
+   }
+
+
+//=================================================================================
+//UTILITIES
+    
+    /**
+     * Description: Levels up the farm to level 2. 
+     *              This allows crops to grow twice as fast.
+     * @param farmer: the farmer you wish to upgrade
+     */
+    public static void upgradeFarmer(Farmer farmer) {
+        farmer = new FarmerLevel2(farmer);
+        System.out.println("Farmer is now: " + farmer.getName());
     }
+    
+    
+    
+    
 }
 
 
