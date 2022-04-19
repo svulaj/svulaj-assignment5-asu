@@ -4,21 +4,25 @@ import java.util.LinkedList;
 import main.java.animals.Animal;
 
 public class AnimalFarm extends Farm{
-    // list to keep track of all the animals in this particular farm
-    private LinkedList<Animal> animals;
+    private final int MAX_ANIMALS = 10;//Maximum number of animals allowed on an animal farm
+    private int[] animals;//the array used to hold all the animals within it
     
     public AnimalFarm(String name) {
-        this.animals = new LinkedList<Animal>();
+        this.setAnimals(new int[MAX_ANIMALS]);
         this.setName(name);
+        this.setPrice(200);
     }
-    
-    
 
-    public LinkedList<Animal> getAnimals() {
+    public int[] getAnimals() {
         return animals;
     }
-
-    public void setAnimals(LinkedList<Animal> animals) {
+    public void setAnimals(int[] animals) {
         this.animals = animals;
     }
+
+    
+    
+    
+
+    
 }

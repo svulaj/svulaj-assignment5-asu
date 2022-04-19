@@ -10,9 +10,9 @@ public class FarmFactory {
     
     public Farm makeNewFarm(int choice, String name) {
         if(choice == 1) {
-            return new AnimalFarm(name);
-        }else if(choice == 2) {
             return new CropFarm(name);
+        }else if(choice == 2) {
+            return new AnimalFarm(name);
         }else {
             return null;
         }

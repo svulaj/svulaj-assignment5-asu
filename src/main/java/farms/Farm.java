@@ -1,14 +1,21 @@
 package main.java.farms;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import main.java.animals.Animal;
+import main.java.crops.Crop;
 import main.java.farmers.Farmer;
 
 public abstract class Farm {
 private String name;
 private int money;  // how much money a farm has to hire new farmers, buy more crops, buy new animals
-private LinkedList<Farmer> farmers = new LinkedList<Farmer>();
+private ArrayList<Crop> cropsArr = new ArrayList<Crop>(10);//the array used to hold all the animals within it
+private int price = 250;
+
+private final int MAX_CROPS = 30;//Maximum number of animals allowed on an animal farm
+private final int MAX_Animals = 30;//Maximum number of animals allowed on an animal farm
+
 
 
 
@@ -25,12 +32,25 @@ public int getMoney() {
 public void setMoney(int money) {
     this.money = money;
 }
-public LinkedList<Farmer> getFarmers() {
-    return farmers;
+public int getPrice() {
+    return price;
 }
-public void setFarmers(LinkedList<Farmer> farmers) {
-    this.farmers = farmers;
+public void setPrice(int price) {
+    this.price = price;
 }
+public int getMAX_CROPS() {
+    return MAX_CROPS;
+}
+public int getMAX_Animals() {
+    return MAX_Animals;
+}
+public ArrayList<Crop> getCropsArr() {
+    return cropsArr;
+}
+public void setCropsArr(ArrayList<Crop> cropsArr) {
+    this.cropsArr = cropsArr;
+}
+
 
 
 }

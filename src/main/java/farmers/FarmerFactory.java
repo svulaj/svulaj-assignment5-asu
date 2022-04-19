@@ -10,7 +10,8 @@ public class FarmerFactory {
             return new AnimalFarmer(name);
         }else if(choice == 2) {
             return new CropFarmer(name);
-        }else {
+        }
+        else {
             return null;
         }
     }

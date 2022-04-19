@@ -3,13 +3,43 @@ package main.java.animals;
 public abstract class Animal {
     private final int maxAge = 14;
     private String name;// Name of the animal
-    private int stomach;// How much food they have accumulated
+    private int stomach;// how much the animal will eat
     private int size;// The size of the animal(will be used for growth)
     private int age;// The age of the animal
-    private String type;
-    private int strength;
-    private int price;
+    private String type;// ID for the animals type
+    private int strength;// strength lvl of the animal to fend off predators
+    private int price;// how much the animal can be sold for
+    private boolean yield; // if true this animal has 
+    private int yieldCount;// how much of a product a particular animal has(cows=milk,goat=milk,pig=bacon)
+    private int affinityMultiplier; //Each animal has an affinity that aids its yield output
     
+    
+    
+    
+    AnimalState state; //done
+    AnimalState product; // done
+    AnimalState pregnant; //done
+  //===========================================================
+    
+    public AnimalState getState() {
+        return state;
+    }
+    public AnimalState getPregnant() {
+        return pregnant;
+    }
+    public void setPregnant(AnimalState pregnant) {
+        this.pregnant = pregnant;
+    }
+    public void setState(AnimalState state) {
+        this.state = state;
+    }
+    public AnimalState getProduct() {
+        return product;
+    }
+    public void setProduct(AnimalState product) {
+        this.product = product;
+    }
+    //===========================================================
     public String getName() {
         return name;
     }
@@ -58,7 +88,30 @@ public abstract class Animal {
     public int getMaxAge() {
         return maxAge;
     }
-    public abstract int graze();
+    public boolean isYield() {
+        return yield;
+    }
+    public void setYield(boolean yield) {
+        this.yield = yield;
+    }
+    public int getYieldCount() {
+        return yieldCount;
+    }
+    public void setYieldCount(int yieldCount) {
+        this.yieldCount = yieldCount;
+    }
+    public int getAffinityMultiplier() {
+        return affinityMultiplier;
+    }
+    public void setAffinityMultiplier(int affinityMultiplier) {
+        this.affinityMultiplier = affinityMultiplier;
+    }
+  //===========================================================
+    public void kill(Animal animalToKill) {
+        animalToKill = null;
+    }
+    
+    public abstract int feed();
     
     
     

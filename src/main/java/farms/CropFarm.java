@@ -1,22 +1,23 @@
 package main.java.farms;
 
-import java.util.LinkedList;
 
-import main.java.crops.Crop;
 
 public class CropFarm extends Farm{
     
-    private LinkedList<Crop> crops = new LinkedList<Crop>();
-
-    public LinkedList<Crop> getCrops() {
-        return crops;
-    }
-
-    public void setCrops(LinkedList<Crop> crops) {
-        this.crops = crops;
-    }
+    private final int price = 250;
+    private final int MAX_CROPS = 30;//Maximum number of animals allowed on an animal farm
+   
+    
 
     public CropFarm(String name) {
         this.setName(name);
+        //this.setPrice(100);
+    }
+    
+
+    
+    public int getCost() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }
