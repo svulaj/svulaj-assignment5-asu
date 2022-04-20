@@ -15,6 +15,7 @@ public class FarmLevel2 extends FarmDecorator{
     public FarmLevel2(Farm baseFarm) {
         super(baseFarm);
         this.setName("Level 2");
+        this.setLvl(2);
         // TODO Auto-generated constructor stub
     }
 

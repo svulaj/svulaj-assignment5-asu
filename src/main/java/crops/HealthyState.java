@@ -8,6 +8,6 @@ public class HealthyState implements CropState{
         crop.setState(this);
     }
     public String toString() {
-        return "Healthy state";
+        return "Healthy";
     }
 }

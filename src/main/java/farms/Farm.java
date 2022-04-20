@@ -15,7 +15,7 @@ private int price = 250;
 private ArrayList<Animal> animalArr = new ArrayList<Animal>(10);
 private final int MAX_CROPS = 30;//Maximum number of animals allowed on an animal farm
 private final int MAX_Animals = 30;//Maximum number of animals allowed on an animal farm
-
+private int lvl = 1;
 
 
 
@@ -55,6 +55,12 @@ public ArrayList<Animal> getAnimalArr() {
 }
 public void setAnimalArr(ArrayList<Animal> animalArr) {
     this.animalArr = animalArr;
+}
+public int getLvl() {
+    return lvl;
+}
+public void setLvl(int lvl) {
+    this.lvl = lvl;
 }
 
 

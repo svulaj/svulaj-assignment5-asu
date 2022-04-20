@@ -11,7 +11,7 @@ public abstract class Animal {
     private int price;// how much the animal can be sold for
     private boolean yield; // if true this animal has 
     private int yieldCount;// how much of a product a particular animal has(cows=milk,goat=milk,pig=bacon)
-    private int affinityMultiplier; //Each animal has an affinity that aids its yield output
+    private int affinity; //Each animal has an affinity that aids its yield output
     
     
     
@@ -100,11 +100,11 @@ public abstract class Animal {
     public void setYieldCount(int yieldCount) {
         this.yieldCount = yieldCount;
     }
-    public int getAffinityMultiplier() {
-        return affinityMultiplier;
+    public int getAffinity() {
+        return affinity;
     }
-    public void setAffinityMultiplier(int affinityMultiplier) {
-        this.affinityMultiplier = affinityMultiplier;
+    public void setAffinity(int affinityMultiplier) {
+        this.affinity = affinityMultiplier;
     }
   //===========================================================
     public void kill(Animal animalToKill) {

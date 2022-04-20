@@ -155,7 +155,7 @@ public abstract class Farmer{
         for(Animal r : this.getFarm().getAnimalArr()) {
             count++;
         }
-        System.out.println("Livestock count = " + count + " animals in farm");
+        //System.out.println("Livestock count = " + count + " animals in farm");
         return count;
     }
     
@@ -190,9 +190,9 @@ public abstract class Farmer{
         for(Animal r : this.getFarm().getAnimalArr()) {
             // 1/8 chance of a predator killing an animal
             if(random.nextInt(8) == 1) {
-                System.out.println("Anaimal ATTACK!!!! Animal state = " + r.getState());
+                //System.out.println("Animal ATTACK!!!! Animal state = " + r.getState());
                 r.setState(dead);
-                System.out.println("after animal attack the Animal state = " + r.getState());
+                System.out.println("Animal ATTACK!!!! after animal attack the Animal state = " + r.getState());
             }
         }
         //add all animals that survived to a temp list of animals
@@ -221,16 +221,12 @@ public abstract class Farmer{
         for(Animal z : this.farm.getAnimalArr()) {
             
             if(z.getState().toString().equals(alive.toString())) {
-                System.out.println("Crop state: " + z.getState().toString() + "Age is: " + z.getAge());
+                System.out.println("Animal state: " + z.getState().toString() + ". Age is: " + z.getAge());
                 tempArr.add(z);
             }else if(z.getState().toString().equals(dead.toString())) {
                 System.out.println("Dead Animal FOUND!!! The state of it is: " + z.getState().toString() + " .....DISCARDING");
             }
-            
         }
-        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-        
-         
         //sets farms crop list to the new list with all the health crops in it
         this.farm.setAnimalArr(tempArr);
     }
@@ -246,12 +242,19 @@ public abstract class Farmer{
         for(Animal r : this.getFarm().getAnimalArr()) {
             //if animal has product
             if(r.getProductState().toString().equals(ready.toString())) {
-                System.out.println("product = ready. animal prod. state= " + r.getProductState());
-                this.setMoney(this.getMoney()+60);
-                System.out.println("Animal product sold");
+                //System.out.println("product = ready. animal prod. state= " + r.getProductState());
+                if(r.getAffinity() == 2) {
+                    this.setMoney(this.getMoney()+120);
+                    System.out.println("Animal product sold with animal affinity boost");
+                }else {
+                    this.setMoney(this.getMoney()+60);
+                    System.out.println("Animal product sold");
+                }
+                
+                
                 //then set product state back to not ready
                 r.setProductState(notReady);
-                System.out.println("product = sold. The animal that produced that product, its state is = " + r.getProductState());
+                //System.out.println("product = sold. The animal that produced that product, its state is = " + r.getProductState());
             }
             
             else if(r.getProductState().toString().equals(notReady.toString())){
@@ -260,7 +263,7 @@ public abstract class Farmer{
             
             
         }
-        System.out.println("after trying to sell animals, players money on hand is now: $" + this.getMoney());
+        System.out.println("-->>>after trying to sell animal product, players money on hand is now: $" + this.getMoney());
         
     }
     
@@ -349,7 +352,6 @@ public abstract class Farmer{
             }
             
         }
-        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         
             //this.cropListToString();
         
@@ -363,7 +365,7 @@ public abstract class Farmer{
     public void cropListToString() {
         int idx = 0;
         for(Crop z : this.farm.getCropsArr()) {
-            System.out.println("crop " + idx +  " now: " + z.getName() + " " + z.getState() + " Age is : " + z.getAge());
+            System.out.println("crop " + idx +  " -->State: " + z.getState() + " --->Age is : " + z.getAge());
             idx++;
         }
     }
@@ -398,7 +400,7 @@ public abstract class Farmer{
         
       //selling crops in sell list
         for(Crop s : sellArr) {
-            this.setMoney(this.getMoney() + s.getPrice() + 45);
+            this.setMoney(this.getMoney() + s.getPrice() + 75);
            // System.out.println("crop sold");
         }
         
@@ -429,13 +431,13 @@ public abstract class Farmer{
             }
             System.out.println("Crop " + temp + " bought");
             this.setMoney(this.getMoney()-newcrop.getPrice());
-            System.out.println("player has $" + this.getMoney() + " now");
+            //System.out.println("player has $" + this.getMoney() + " now");
             if(this.farm.getCropsArr().size() < 10) {
                 System.out.println();
                 this.farm.getCropsArr().add(newcrop);
             }
             if(this.farm.getCropsArr().size() >= 10) {
-                System.out.println("out of space fro crops. Cannot buy anymore");
+                System.out.println("out of space for crops. Cannot buy anymore");
                 break;
             }
             
@@ -481,14 +483,14 @@ public abstract class Farmer{
             //if the farmer has reached level 2 then crops will grow twice as fast
             //allowing them to be sold faster
             if(this.affinity == 2) {
-                System.out.println("Crop is affected by farmers affinity so a crop grows by 2 instead of 1");
+                //System.out.println("Crop is affected by farmers affinity so a crop grows by 2 instead of 1");
                 s.setAge(s.getAge() + affinity);
             }else {
                 s.setAge(s.getAge() + 1);
                  //System.out.println("crop age = " + s.getAge());
             }
             //every 4th day the crops will be ready to sell
-            if(s.getAge()%4 == 0) {
+            if(s.getAge() >= 4) {
                 s.setSellState(new ReadyToSellState());
             }
             //Crops have a 1/10 chances of becoming diseases
@@ -499,7 +501,7 @@ public abstract class Farmer{
             }
             else if(s.getState().toString().equals(diseased.toString())) {
                 s.setState(new DeadCropState());
-                System.out.println("this crop was diseased and has now died");
+                //System.out.println("this crop was diseased and has now died");
             }
             else if(s.getState().toString().equals(healthy.toString())) {
                 keepArr.add(s);

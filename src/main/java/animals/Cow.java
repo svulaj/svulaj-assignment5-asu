@@ -17,6 +17,7 @@ public class Cow extends Animal{
         this.setState(new AliveAnimalState());
         this.setPregnantState(new NotPregnantAnimalState());
         this.setProductState(new ProductNotReadyState());
+        this.setAffinity(1);
     }
     
     
