@@ -29,9 +29,10 @@ import main.java.predator.PredatorFactory;
 public class Main {
     
     public static boolean day = true;
-    public static final int endOfGame = 10;
+    public static final int endOfGame = 25;
     public static int daysPassed = 0;
     public static final int maxCrops = 10;
+    public static boolean isUpgraded = false;
     
 //      TimeUnit timeUnit
     public static boolean gameIsRunning = true;
@@ -73,7 +74,7 @@ public class Main {
 //            TimeUnit.SECONDS.sleep(2);
             System.out.println("Animals to buy: Cow = $15, Goat = $10, and Pig = $5 ");
 //            TimeUnit.SECONDS.sleep(2);
-            System.out.println("Farms to buy: AnimalFarm = $200, CropFarm = $100 ");
+            System.out.println("Farms to buy: Farm level 2 = $200, base farm = $100 ");
 //          TimeUnit.SECONDS.sleep(2);
             System.out.println(
                     "The Mystical Spirit: \"You will start with $500, Good Luck! Oh yea... and ..... beware of the predators......\" ");
@@ -86,7 +87,7 @@ public class Main {
             
 //-------------------------------------------------------------------------------
 //BEGINNING SETUP
-            Farmer player = farmerFactory.makeNewFarmer(1, null);
+            Farmer player = farmerFactory.makeNewFarmer(1, "Level 1");
             Farm baseFarm = farmFactory.makeNewFarm(1, farmFactory.nameGenCropFarm());
             System.out.println("You will start with $500");
             player.setMoney(500);
@@ -104,16 +105,16 @@ public class Main {
 //BEGINNING OF THE GAME
             do {
                 if(day == true) {
-                    System.out.println("\n===============================================");
+                    System.out.println("\n==========================================================================================================================");
                     System.out.println("Days passed -------------------------------> " + daysPassed);
                     System.out.println("===============================================\n");
-                    player.ageAnimals();
-                    player.ageCrops();
+                    
 //---------------------------------------------------------------------------------------------------------------------
 // UPGRADE SECTION --- Morning section
-                    
                     System.out.println("\n----------------------------");
+                    System.out.println("------------------------------");
                     System.out.println("EARLY MORNING: UPGRADING TIME");
+                    System.out.println("------------------------------");
                     System.out.println("----------------------------\n");
                     //if farmers farm is a level 1 farm <<<<Checking for upgrades and additional purchases of crops
                     if(baseFarm.equals(baseFarm)) {
@@ -127,8 +128,20 @@ public class Main {
                           }
                           //can we purchase new crops?
                           if(player.getFarm().getCropsArr().size() < 10 && player.getMoney() > 30) {
+                              System.out.println("-------------------------------");
+                              System.out.println("At the market you:\n");
+                              System.out.println("-------------------------------");
                               player.buyCrop();
+                              System.out.println("----------------------------------------");
                               //System.out.println("purchase crops check");
+                          }else {
+                              System.out.println("not enough money or room to buy more crops");
+                          }
+                          
+                          if(player.getFarm().getAnimalArr().size() < 10 && player.getMoney() > 30 && player.getLvl() == 2) {
+                              player.buyAnimals();
+                          }else {
+                              System.out.println("you do not have a level 2 farm yet");
                           }
                           //System.out.println("player has $" + player.getMoney() + " left!");
                     }
@@ -138,9 +151,20 @@ public class Main {
                     System.out.println("DAY TIME: PROFIT TAKING TIME");
                     System.out.println("----------------------------\n");
                     
+                    //if player has enough money the farmer will upgrade
+                    if(player.getMoney() > 1000 && isUpgraded == false) {
+                        System.out.println("----------------------->You have made a deal with a shady character for $1000. You are now a level 2 farmer");
+                        upgradeFarmer(player);
+                        isUpgraded = true;
+                        player.setMoney(player.getMoney()-1000);
+                    }
+                    
                     System.out.println("--->Farmer goes to the market to sell what stuff he can:");
                     player.sellCrops();
-                    //player.sellanimalProduct();
+                    if(player.getFarm().getAnimalArr().size() != 0) {
+                        player.sellanimalProduct();
+                    }
+                    
 //--------------------------------------------------------------------------------------------------------------------- 
                     
                     // set to go to night time
@@ -148,14 +172,23 @@ public class Main {
                 }
                 
                 if(day == false) {
+                    System.out.println("\n----------------------------");
+                    System.out.println("NIGHT TIME: THE PREDATORS COME OUT");
+                    System.out.println("----------------------------\n");
                     player.predatorAttack();
                     
                     
                     
                     daysPassed++;
+                    player.ageAnimals();
+                    player.ageCrops();
                     //set to go to daytime
                     day = true;
-                    
+                    player.cropListToString();
+                    if(player.getMoney() == 6000) {
+                        daysPassed = endOfGame;
+                    }
+                    System.out.println("--------> END OF DAY");
                 }
                 
                 
@@ -179,7 +212,11 @@ public class Main {
      */
     public static void upgradeFarmer(Farmer farmer) {
         farmer = new FarmerLevel2(farmer);
+        farmer.setAffinity(2);
+        farmer.setName("level 2");
+        System.out.println("farmer lvl: " + farmer.getName());
         System.out.println("Farmer is now: " + farmer.getName());
+        //farmer.setMoney(farmer.getMoney() - 1000);
     }
     
     
