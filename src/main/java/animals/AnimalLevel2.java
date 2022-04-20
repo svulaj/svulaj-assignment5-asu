@@ -1,7 +1,11 @@
 package main.java.animals;
 
-public class AnimalLevel2 extends AnimalDecorator{
+public class AnimalLevel2 extends AnimalDecorator { 
 
+    /**
+     * Description: Constructor.
+     * @param animal The animal to upgrade.
+     */
     public AnimalLevel2(Animal animal) {
         super(animal);
         this.setName("Level 2");

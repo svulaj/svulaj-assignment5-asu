@@ -1,14 +1,16 @@
 package main.java.crops;
 
-public class Grass extends Crop{
+public class Grass extends Crop { 
 
+    /**
+    * Description: Constructor.
+    * @param name The name of the crop.
+    */
     public Grass(String name) {
         this.setName(name);
-        this.setPrice(30); //grain starts at $2 per crop at age 0
+        this.setPrice(30);
         this.setAge(0);
         this.setDiseased(false);
         this.setType("grain");
-//      this.setGrowthRate(1);
-//      this.setYield(1);
     }
 }

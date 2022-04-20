@@ -1,6 +1,6 @@
 package main.java.animals;
 
-public class AnimalDecorator extends Animal{
+public class AnimalDecorator extends Animal { 
 
     protected Animal tempAnimal;
     
@@ -8,11 +8,9 @@ public class AnimalDecorator extends Animal{
         tempAnimal = animal;
     }
     
-    
-    @Override
-    public int feed() {
-        // TODO Auto-generated method stub
-        return 0;
+    public String toString() {
+        return tempAnimal.getName();
     }
+    
 
 }

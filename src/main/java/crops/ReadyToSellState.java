@@ -1,6 +1,6 @@
 package main.java.crops;
 
-public class ReadyToSellState implements CropState{
+public class ReadyToSellState implements CropState { 
 
     @Override
     public void doAction(Crop crop) {
@@ -8,6 +8,7 @@ public class ReadyToSellState implements CropState{
         
         crop.setState(this);
     }
+    
     public String toString() {
         return "Ready to sell state";
     }

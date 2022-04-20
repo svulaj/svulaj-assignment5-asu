@@ -1,9 +1,11 @@
 package main.java.animals;
 
-public class Pig extends Animal{
-    private final int maxSize = 20;
+public class Pig extends Animal {
     
-
+    /**
+     * Description: Constructor.
+     * @param name Name of animal.
+     */
     public Pig(String name) {
         this.setName(name);
         this.setAge(0);
@@ -18,15 +20,4 @@ public class Pig extends Animal{
         this.setProductState(new ProductNotReadyState());
     }
 
-    @Override
-    public int feed() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    public int getMaxSize() {
-        return maxSize;
-    }
-
-    
 }

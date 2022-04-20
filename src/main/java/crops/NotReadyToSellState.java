@@ -1,6 +1,6 @@
 package main.java.crops;
 
-public class NotReadyToSellState implements CropState{
+public class NotReadyToSellState implements CropState { 
 
     @Override
     public void doAction(Crop crop) {

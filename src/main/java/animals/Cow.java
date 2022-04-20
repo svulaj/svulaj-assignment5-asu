@@ -1,10 +1,10 @@
 package main.java.animals;
 
-public class Cow extends Animal{
-    private final int maxSize = 20;
-    
-
-
+public class Cow extends Animal { 
+    /**
+     * Description: Constructor.
+     * @param name The name of the animal.
+     */
     public Cow(String name) {
         this.setName(name);
         this.setAge(0);
@@ -19,19 +19,5 @@ public class Cow extends Animal{
         this.setProductState(new ProductNotReadyState());
         this.setAffinity(1);
     }
-    
-    
-
-
-    @Override
-    public int feed() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    
-    
-    
-    
 
 }

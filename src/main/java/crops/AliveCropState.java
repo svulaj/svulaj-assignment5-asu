@@ -1,6 +1,6 @@
 package main.java.crops;
 
-public class AliveCropState implements CropState{
+public class AliveCropState implements CropState { 
 
     
     @Override
@@ -9,6 +9,7 @@ public class AliveCropState implements CropState{
         
         crop.setState(this);
     }
+    
     public String toString() {
         return "Alive state";
     }
