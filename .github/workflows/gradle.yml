@@ -12,10 +12,12 @@ on:
     branches: 
     - main 
     - submission1
+    - submission2
   pull_request:
     branches: 
      - main 
      - submission1
+     - submission2
     
 
 jobs:
