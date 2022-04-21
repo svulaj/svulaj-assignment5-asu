@@ -55,7 +55,7 @@ public abstract class Farmer {
 
     /**
      * Description: Buys the max amount of animals the farmer can afford.
-     * 
+     * DP: Factory.
      * @author shaunvulaj NOTE: Works
      * 
      */
@@ -82,7 +82,7 @@ public abstract class Farmer {
 
     /**
      * Description: Ages all of the animals that a farmer owns.
-     * 
+     * DP: State.
      * @author shaunvulaj NOTE: works
      */
     public void ageAnimals() {
@@ -110,7 +110,7 @@ public abstract class Farmer {
 
     /**
      * Description: Runs the chance of an animal being born. NOTE:uses DP Factory
-     * 
+     * DP: Factory.
      * @author shaun vulaj
      */
     public void birthAnimal() {
@@ -131,7 +131,7 @@ public abstract class Farmer {
 
     /**
      * Description: Simply returns the number of animals a farmer has.
-     * 
+     * DP: State.
      * @return
      */
     public int liveStockNumCount() {
@@ -146,7 +146,7 @@ public abstract class Farmer {
 
     /**
      * Description: Utility method to tell us how many products are available.
-     * 
+     * DP: State.
      * @return the number of milk that is a available to sell
      */
     public int productAvailCount() {
@@ -164,6 +164,7 @@ public abstract class Farmer {
 
     /**
      * Description: Simulates an animal attack.
+     * DP: State.
      */
     public void predatorAttack() {
         Random random = new Random();
@@ -193,7 +194,7 @@ public abstract class Farmer {
     /**
      * Description: finds all of the dead animals that a farmer has and then puts.
      * all of the healthy animals in a new list
-     * 
+     * DP: State.
      * @return
      */
     public void findDeadAnimals() {
@@ -220,6 +221,7 @@ public abstract class Farmer {
     /**
      * Description: Checks if animals product state equals ready, if it does then
      * product is sold to $60 profit and the state set back to not ready.
+     * DP: State.
      */
     public void sellanimalProduct() {
         ProductReadyState ready = new ProductReadyState();
@@ -265,6 +267,7 @@ public abstract class Farmer {
     /**
      * Description: This method checks to see if any crops are ready to be sold.
      * based on the toStrings of the state.
+     * DP: State.
      */
     
     public void areCropsReady() {
@@ -309,6 +312,7 @@ public abstract class Farmer {
 
     /**
      * Description: Finds the dead crops that a farmer has.
+     * DP: State.
      */
     public void findDeadCrops() {
         DiseasedCropState diseased = new DiseasedCropState();// disease check
@@ -351,6 +355,7 @@ public abstract class Farmer {
 
     /**
      * Description: This method sells the crops that are ready to be sold.
+     * DP: State.
      */
     public void sellCrops() {
         ArrayList<Crop> sellArr = new ArrayList<Crop>(10);
@@ -384,6 +389,7 @@ public abstract class Farmer {
 
     /**
      * Description: Simply purchases a crop for the farmer.
+     * DP: Factory.
      * 
      */
     public void buyCrop() {
@@ -431,6 +437,7 @@ public abstract class Farmer {
      * Description: This method ages the crops in a farmers farm by one day. When
      * aging, there is a 1/10 chance of a crop becoming diseased. Every 4th day the
      * crop will become ready to sell
+     * DP: State.
      */
     public void ageCrops() {
         DiseasedCropState diseased = new DiseasedCropState();// disease check

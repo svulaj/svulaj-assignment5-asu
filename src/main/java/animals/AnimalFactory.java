@@ -8,6 +8,7 @@ public class AnimalFactory {
 
     /**
      * Description: Constructor.
+     * DP: Factory.
      * @param choice The animal you wan to make.
      * @param name The name of the new animal.
      * @return Returns a new animal.
