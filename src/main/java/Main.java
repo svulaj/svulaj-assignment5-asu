@@ -93,6 +93,7 @@ public class Main {
                     System.out.println(
                             "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("You have made a deal with a shady character for $1000.");
+                    //DP: Decorator.
                     player = new FarmerLevel2(player);
                     isUpgraded = true;
                     int cost = player.getMoney() - 1000;
@@ -105,9 +106,11 @@ public class Main {
                 }
                 if (player.getMoney() > 1000 && player.getLvl() == 2) {
                     System.out.println("Level 2 farm acquired");
+                    //DP: Decorator.
                     player.setFarm(baseFarm = new FarmLevel2(baseFarm));
                     player.setMoney(player.getMoney() - 1000);
                     if (player.getLvl() == 2) {
+                        //DP: Decorator.
                         upgradeAnimals(player);
                         System.out.println("animals have been upgraded");
                     } else {
